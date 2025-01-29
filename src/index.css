@@ -9,6 +9,7 @@ body {
   -moz-osx-font-smoothing: grayscale;
   background-color: #f7fafc;
   font-family: 'Poppins', sans-serif;
+  overflow-y: scroll;
 }
 
 
@@ -32,6 +33,7 @@ a {
   color: #646cff;
   text-decoration: inherit;
 }
+
 a:hover {
   color: #535bf2;
 }
@@ -60,9 +62,11 @@ button {
   cursor: pointer;
   transition: border-color 0.25s;
 }
+
 button:hover {
   border-color: #646cff;
 }
+
 button:focus,
 button:focus-visible {
   outline: 4px auto -webkit-focus-ring-color;
@@ -73,9 +77,11 @@ button:focus-visible {
     color: #213547;
     background-color: #ffffff;
   }
+
   a:hover {
     color: #747bff;
   }
+
   button {
     background-color: #f9f9f9;
   }
@@ -88,8 +94,8 @@ button:focus-visible {
 
 /*-------main heading--------*/
 
-.main_content  {
-  padding: 40px 212px;
+.main_content {
+  padding: 50px 212px;
   text-align: center;
 }
 
@@ -114,4 +120,62 @@ button:focus-visible {
 }
 
 
-/*-------footer--------*/
+/*-------filter--------*/
+
+
+.filter_main {
+  padding: 16px;
+  border-bottom: 1px solid #ddd;
+  color: black;
+}
+
+.flexing {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.left,
+.right {
+  width: 150px;
+  text-align: center;
+}
+
+.center {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  flex-grow: 1;
+  justify-content: center;
+}
+
+.category {
+  cursor: pointer;
+  color: #000;
+}
+
+.expand-icon {
+  margin-top: 8px;
+  cursor: pointer;
+  color: #000;
+}
+
+.filter-btn {
+  cursor: pointer;
+  color: #000;
+  border: 1px solid #ddd;
+  padding: 8px 16px;
+}
+
+.filter-section {
+  margin-top: 16px;
+  padding: 16px;
+  border: 1px solid #ddd;
+  box-shadow: 0 0 4px rgba(0, 0, 0, 0.1);
+}
+
+.filter-section input {
+  padding: 8px;
+  border: 1px solid #ddd;
+  margin-top: 8px;
+}

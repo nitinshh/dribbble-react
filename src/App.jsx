@@ -4,6 +4,7 @@ import { Routes } from 'react-router-dom'
 import Navbar from './components/navbar'
 import Heading from './components/Heading'
 import Footer from './components/footer'
+import Filter from './components/filter'
 // import Home from './components/Home'
 // import About from './components/About'
 // import Projects from './components/Projects'
@@ -25,6 +26,7 @@ export default function App() {
          <Route path="/Contact"  element={<Contact/>} /> */}
        </Routes>
        <Heading />
+       <Filter />
 
        <Footer />
    </>
