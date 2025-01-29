@@ -1,7 +1,9 @@
 // import { Route, Routes } from 'react-router-dom'
 import { Routes } from 'react-router-dom'
 
-import Navbar from './components/Navbar'
+import Navbar from './components/navbar'
+import Heading from './components/Heading'
+import Footer from './components/footer'
 // import Home from './components/Home'
 // import About from './components/About'
 // import Projects from './components/Projects'
@@ -22,6 +24,9 @@ export default function App() {
          <Route path="/Jewelry"  element={<Jewelry />} />
          <Route path="/Contact"  element={<Contact/>} /> */}
        </Routes>
+       <Heading />
+
+       <Footer />
    </>
  )
 }

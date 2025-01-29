@@ -1,5 +1,5 @@
-@tailwind base;
-@tailwind components;
+/* @tailwind base;
+@tailwind components; */
 @tailwind utilities;
 
 
@@ -80,3 +80,38 @@ button:focus-visible {
     background-color: #f9f9f9;
   }
 }
+
+
+
+
+
+
+/*-------main heading--------*/
+
+.main_content  {
+  padding: 40px 212px;
+  text-align: center;
+}
+
+.main_heading {
+  font-size: medium;
+  font-weight: 400;
+  color: #1a202c;
+  margin-bottom: 0.5rem;
+}
+
+.header_links {
+  background: #f3f3f6;
+  margin: 12px;
+  font-size: small;
+  padding: 10px;
+  border-radius: 50px;
+  cursor: pointer;
+}
+
+.header_links:hover {
+  background-color: #eae6e68d;
+}
+
+
+/*-------footer--------*/
