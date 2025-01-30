@@ -169,23 +169,58 @@ button:focus-visible {
 }
 
 .filter-section {
-  margin-top: 16px;
-  padding: 16px;
-  border: 1px solid #ddd;
-  box-shadow: 0 0 4px rgba(0, 0, 0, 0.1);
+  margin-top: 1rem;
+  padding: 1.5rem;
+  border-radius: 12px;
+  background-color: #f7fafc;
+  border: none;
+  /* border: 1px solid #e5e7eb; */
+  /* box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1); */
 }
 
 .filter-section input {
-  padding: 8px;
-  border: 1px solid #ddd;
-  margin-top: 8px;
+  padding: 1rem;
+  background-color: #f7fafc;
+  color: black;
+  border-radius: 8px;
+  border: 1px solid grey;
+  margin-top: 0.5rem;
+  font-size: 1rem;
+  width: 60%;
+  transition: all 0.3s ease;
+}
+
+.filter-section input:focus {
+  border-color: #a5b4fc;
+  outline: none;
+  box-shadow: 0px 0px 6px rgba(165, 180, 252, 0.7);
+}
+
+.filter-section .flex {
+  display: flex;
+  justify-content: space-between;
+}
+
+.filter-section .flex-1 {
+  flex: 1;
+  margin-right: 20px;
+}
+
+@media (max-width: 768px) {
+  .filter-section .flex {
+    flex-direction: column;
+  }
+
+  .filter-section .flex-1 {
+    margin-right: 0;
+  }
 }
 
 
 /*--------footer---------*/
 
 .footer_container {
-  background-color: #f8f9fa;
+  background-color: #f7fafc;
   bottom: 0;
   width: 100%;
   z-index: 10;
@@ -269,7 +304,7 @@ button:focus-visible {
   white-space: nowrap;
   position: relative;
   width: 100%;
-  background: #f9f9f9;
+  background: #f7fafc;
   padding: 20px 10px;
   box-sizing: border-box;
 }
@@ -293,7 +328,7 @@ button:focus-visible {
   align-items: center;
   width: 160px;
   border-radius: 8px;
-  background: #ffffff;
+  background: #f7fafc;
   padding: 10px;
   box-shadow: 2px 4px 6px rgba(0, 0, 0, 0.1);
 }
@@ -321,4 +356,4 @@ button:focus-visible {
   100% {
     transform: translateX(-50%);
   }
-} 
+}

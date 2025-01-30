@@ -55,18 +55,24 @@ const Filter = () => {
 
       {/* Filter Section */}
       {showFilter && (
-        <div className="filter-section mt-4 p-4 border shadow-md text-black flex gap-6">
-          <div>
-            <p>Tags</p>
-            <input type="text" className="border p-2" />
-          </div>
-          <div>
-            <p>Color</p>
-            <input
-              type="text"
-              placeholder="Enter hex or select"
-              className="border p-2"
-            />
+        <div className="filter-section mt-4 p-6 rounded-lg shadow-lg bg-white border border-gray-200">
+          <div className="flex gap-8">
+            <div className="flex-1">
+              <p className="text-lg font-semibold text-gray-700">Tags</p>
+              <input
+                type="text"
+                placeholder="Enter tag"
+                className="mt-2 w-full p-3 rounded-md border border-gray-300 shadow-sm focus:outline-none focus:ring-2 focus:ring-indigo-500"
+              />
+            </div>
+            <div className="flex-1">
+              <p className="text-lg font-semibold text-gray-700">Color</p>
+              <input
+                type="text"
+                placeholder="Enter hex code"
+                className="mt-2 w-full p-3 rounded-md border border-gray-300 shadow-sm focus:outline-none focus:ring-2 focus:ring-indigo-500"
+              />
+            </div>
           </div>
         </div>
       )}
