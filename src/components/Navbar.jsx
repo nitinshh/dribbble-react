@@ -4,6 +4,7 @@ import "../styles/Navbar.css";
 function Navbar() {
   const [showDropdown, setShowDropdown] = useState(false);
   const [activeDropdown, setActiveDropdown] = useState(null);
+  const [searchQuery, setSearchQuery] = useState("");
 
   const handleMouseEnter = (dropdown) => {
     setActiveDropdown(dropdown);
@@ -15,13 +16,17 @@ function Navbar() {
     setActiveDropdown(null);
   };
 
+  const handleSearchChange = (e) => {
+    setSearchQuery(e.target.value);
+  };
+
   return (
     <nav className="navbar_container bg-gray-100 shadow-md fixed top-0 w-full z-10">
       <div className="navbar_wrapper flex justify-between items-center px-6 py-8">
         {/* Logo Section */}
         <div className="navbar_logo">
           <img
-          src="https://media.istockphoto.com/id/1483051074/vector/whatever-vector-lettering.jpg?s=612x612&w=0&k=20&c=jUsXsXLj-bYMSdPvzCkFKZM1lprQC6PKqjNl_6doV8k="
+            src="https://media.istockphoto.com/id/1483051074/vector/whatever-vector-lettering.jpg?s=612x612&w=0&k=20&c=jUsXsXLj-bYMSdPvzCkFKZM1lprQC6PKqjNl_6doV8k="
             alt="Logo"
             className="w-16 h-16"
           />
@@ -99,6 +104,20 @@ function Navbar() {
 
           <li className="cursor-pointer ml-4">Find Jobs</li>
           <li className="cursor-pointer ml-4">Blog</li>
+
+          {/* Search Bar Section */}
+          <li className="ml-4">
+            <div className="search-container">
+              <input
+                type="text"
+                className="search-input"
+                value={searchQuery}
+                onChange={handleSearchChange}
+                placeholder="Search..."
+              />
+              <i className="search-icon fas fa-search"></i>
+            </div>
+          </li>
         </ul>
 
         {/* Buttons Section */}
