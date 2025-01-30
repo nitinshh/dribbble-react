@@ -5,6 +5,7 @@ import Navbar from './components/navbar'
 import Heading from './components/Heading'
 import Footer from './components/footer'
 import Filter from './components/filter'
+import MarqueeSlider from './components/marqueeSlider'
 // import Home from './components/Home'
 // import About from './components/About'
 // import Projects from './components/Projects'
@@ -27,6 +28,8 @@ export default function App() {
        </Routes>
        <Heading />
        <Filter />
+
+       <MarqueeSlider/>
 
        <Footer />
    </>
