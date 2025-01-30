@@ -21,7 +21,7 @@ function Navbar() {
         {/* Logo Section */}
         <div className="navbar_logo">
           <img
-            src="https://www.svgrepo.com/show/478938/nazi-symbol-3.svg"
+          src="https://media.istockphoto.com/id/1483051074/vector/whatever-vector-lettering.jpg?s=612x612&w=0&k=20&c=jUsXsXLj-bYMSdPvzCkFKZM1lprQC6PKqjNl_6doV8k="
             alt="Logo"
             className="w-16 h-16"
           />

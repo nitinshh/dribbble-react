@@ -163,8 +163,9 @@ button:focus-visible {
 .filter-btn {
   cursor: pointer;
   color: #000;
+  border-radius: 20px;
   border: 1px solid #ddd;
-  padding: 8px 16px;
+  padding: 8px 26px;
 }
 
 .filter-section {
@@ -178,4 +179,84 @@ button:focus-visible {
   padding: 8px;
   border: 1px solid #ddd;
   margin-top: 8px;
+}
+
+
+/*--------footer---------*/
+
+.footer_container {
+  background-color: #f8f9fa;
+  bottom: 0;
+  width: 100%;
+  z-index: 10;
+}
+
+.footer_wrapper {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 10px 20px;
+}
+
+.footer_logo img {
+  height: 70px;
+  width: auto;
+}
+
+.footer_nav {
+  display: flex;
+  gap: 20px;
+}
+
+.footer_nav a {
+  text-decoration: none;
+  color: #333;
+  font-weight: 500;
+  transition: color 0.3s;
+}
+
+
+.footer_socials {
+  display: flex;
+  gap: 15px;
+}
+
+.footer_socials a {
+  color: #333;
+  font-size: 20px;
+  transition: color 0.3s;
+}
+
+
+
+.footer_bottom {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 8px 20px;
+  margin-top: 5px;
+}
+
+.footer_left {
+  display: flex;
+  gap: 15px;
+}
+
+.footer_left span,
+.footer_left a {
+  color: #898484;
+  font-size: 14px;
+  text-decoration: none;
+}
+
+
+.footer_right {
+  display: flex;
+  gap: 15px;
+}
+
+.footer_right a {
+  color: #898484;
+  font-size: 14px;
+  text-decoration: none;
 }
