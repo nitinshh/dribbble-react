@@ -281,6 +281,11 @@ button:focus-visible {
   will-change: transform;
 }
 
+.marquee:hover .marquee_inner {
+  animation-play-state: paused;
+  transition: transform 3s ease-out;
+}
+
 .marquee_card {
   cursor: pointer;
   display: flex;
@@ -316,4 +321,4 @@ button:focus-visible {
   100% {
     transform: translateX(-50%);
   }
-}
+} 
