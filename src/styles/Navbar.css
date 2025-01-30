@@ -138,7 +138,7 @@
     background-color: #f7fafc;
     padding: 4px;
     border-radius: 20px;
-    border: 1px solid grey;
+    border: 1px solid rgb(206, 205, 205);
 }
 
 .search-input {
@@ -161,7 +161,6 @@
     border-radius: 10px;
     color: grey;
     font-size: 20px;
-    margin-left: -30px;
     margin-right: 5px;
     cursor: pointer;
 }

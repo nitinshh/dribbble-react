@@ -113,7 +113,7 @@ function Navbar() {
                 className="search-input"
                 value={searchQuery}
                 onChange={handleSearchChange}
-                placeholder="Search..."
+                placeholder="What are you looking for?"
               />
               <i className="search-icon fas fa-search"></i>
             </div>
