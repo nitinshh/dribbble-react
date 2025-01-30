@@ -42,37 +42,17 @@ function Navbar() {
             Explore <span className="down-arrow"></span>
             {showDropdown && activeDropdown === "explore" && (
               <ul className="dropdown_menu">
-                <li className="dropdown_item">
-                  <i className="fas fa-star mr-2"></i> Popular
-                </li>
-                <li className="dropdown_item">
-                  <i className="fas fa-fire mr-2"></i> New and Noteworthy
-                </li>
+                <li className="dropdown_item_up">Popular</li>
+                <li className="dropdown_item_up">New and Noteworthy</li>
                 <br />
-                <li className="dropdown_item">
-                  Product Design
-                </li>
-                <li className="dropdown_item">
-                  Web Design
-                </li>
-                <li className="dropdown_item">
-                  Animation
-                </li>
-                <li className="dropdown_item">
-                  Branding
-                </li>
-                <li className="dropdown_item">
-                  Illustration
-                </li>
-                <li className="dropdown_item">
-                  Mobile
-                </li>
-                <li className="dropdown_item">
-                  Typography
-                </li>
-                <li className="dropdown_item">
-                  Print
-                </li>
+                <li className="dropdown_item">Product Design</li>
+                <li className="dropdown_item">Web Design</li>
+                <li className="dropdown_item">Animation</li>
+                <li className="dropdown_item">Branding</li>
+                <li className="dropdown_item">Illustration</li>
+                <li className="dropdown_item">Mobile</li>
+                <li className="dropdown_item">Typography</li>
+                <li className="dropdown_item">Print</li>
               </ul>
             )}
           </li>
@@ -85,19 +65,10 @@ function Navbar() {
             Hire a Designer <span className="down-arrow"></span>
             {showDropdown && activeDropdown === "hire" && (
               <ul className="dropdown_menu">
-                <li className="dropdown_item">
-                  <i className="fas fa-search mr-2"></i> Browse Designers
-                </li>
-                <li className="dropdown_item">
-                  <i className="fas fa-file-alt mr-2"></i> Submit a Project
-                  Brief
-                </li>
-                <li className="dropdown_item">
-                  <i className="fas fa-briefcase mr-2"></i> Post a Job
-                </li>
-                <li className="dropdown_item">
-                  <i className="fas fa-lightbulb mr-2"></i> Hiring on Dribbble
-                </li>
+                <li className="dropdown_item">Browse Designers</li>
+                <li className="dropdown_item">Submit a Project Brief</li>
+                <li className="dropdown_item">Post a Job</li>
+                <li className="dropdown_item">Hiring on Dribbble</li>
               </ul>
             )}
           </li>
