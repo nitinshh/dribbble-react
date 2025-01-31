@@ -1,5 +1,4 @@
 import { useState } from "react";
-import { ChevronRight, ChevronLeft } from "lucide-react";
 
 const Filter = () => {
   const [expanded, setExpanded] = useState(false);
@@ -31,14 +30,29 @@ const Filter = () => {
               {category}
             </span>
           ))}
-          {expanded &&
-            extraCategories.map((category) => (
-              <span key={category} className="category">
-                {category}
-              </span>
-            ))}
-          <span className="expand-icon" onClick={() => setExpanded(!expanded)}>
-            {expanded ? <ChevronLeft size={20} /> : <ChevronRight size={20} />}
+          <div
+            className={`extra-categories ${
+              expanded ? "expanded" : "collapsed"
+            }`}
+          >
+            {expanded &&
+              extraCategories.map((category) => (
+                <span key={category} className="category">
+                  {category}
+                </span>
+              ))}
+          </div>
+          <span
+            className="expand-icon"
+            onClick={() => setExpanded(!expanded)}
+            style={{
+              cursor: "pointer",
+              transform: expanded ? "rotate(180deg)" : "rotate(0deg)",
+              transition: "transform 0.3s ease, margin-left 0.3s ease",
+              marginLeft: expanded ? "0" : "0",
+            }}
+          >
+            &#62; {/* Right arrow icon */}
           </span>
         </div>
 

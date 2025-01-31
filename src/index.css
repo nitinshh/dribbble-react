@@ -142,6 +142,7 @@ button:focus-visible {
   text-align: center;
 }
 
+
 .center {
   display: flex;
   align-items: center;
@@ -150,16 +151,31 @@ button:focus-visible {
   justify-content: center;
 }
 
+.center .extra-categories {
+  display: flex;
+  flex-direction: row;
+  transition: max-height 0.5s ease-in-out;
+  max-height: 0;
+  overflow: hidden;
+}
+
+.center .extra-categories.expanded {
+  max-height: 500px;
+  gap: 16px;
+}
+
 .category {
+  margin-right: 10px;
   cursor: pointer;
-  color: #000;
+  font-size: 14px;
+  color: #333;
 }
 
 .expand-icon {
-  margin-top: 8px;
   cursor: pointer;
-  color: #000;
+  margin-left: 10px;
 }
+
 
 .filter-btn {
   cursor: pointer;
