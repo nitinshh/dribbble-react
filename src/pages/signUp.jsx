@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { Link } from "react-router-dom";
 
 export default function SignUp() {
   const [isEmailSignup, setIsEmailSignup] = useState(false);
@@ -54,9 +55,9 @@ export default function SignUp() {
             <div className="sign-in-link mt-4">
               <p className="text-sm">
                 Already have an account?{" "}
-                <a href="/login" className="link-signin">
+                <Link to="/login" className="link-signin">
                   Sign In
-                </a>
+                </Link>
               </p>
             </div>
           </div>

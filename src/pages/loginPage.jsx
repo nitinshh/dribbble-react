@@ -1,3 +1,5 @@
+import { Link } from "react-router-dom";
+
 export default function SignIn() {
   return (
     <div className="signin_container">
@@ -30,9 +32,9 @@ export default function SignIn() {
 
         <div className="sign-up-link">
           Don&apos;t have an account?{" "}
-          <a href="/signup" className="link-signup">
-            Sign up
-          </a>
+          <Link to="/signup" className="link-signup">
+            Sign In
+          </Link>
         </div>
       </div>
     </div>
