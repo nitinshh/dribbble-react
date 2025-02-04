@@ -6,6 +6,7 @@ import Footer from "./components/footer";
 import Filter from "./components/filter";
 import CarouselSlider from "./components/carouselSlider";
 import SignUp from "./pages/signUp";
+import Login from "./pages/loginPage";
 const temptoken = false;
 
 export default function App() {
@@ -15,6 +16,7 @@ export default function App() {
       <Routes>
         {/* Add other routes for different pages */}
         <Route path="/signup" element={<SignUp />} />
+        <Route path="/login" element={<Login />} />
       </Routes>
       {temptoken && (
         <>
