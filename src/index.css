@@ -359,3 +359,163 @@ button:focus-visible {
   font-weight: bold;
   color: #333;
 }
+
+
+
+
+/*-------signup--------*/
+
+/* Container for flex layout */
+.container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  height: 100vh;
+  width: 170%;
+}
+
+.image-container {
+  width: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 20px;
+}
+
+.image {
+  width: 80%;
+  max-width: 350px;
+}
+
+/* Right side form container */
+.form-container {
+  width: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  padding: 20px;
+}
+
+.form,
+.alternative {
+  width: 100%;
+  color: black;
+  max-width: 300px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+/* Input and button styling */
+input,
+.btn-submit,
+.btn-google,
+.btn-email {
+  width: 100%;
+  padding: 15px;
+  margin-bottom: 15px;
+  border-radius: 15px;
+  font-size: 16px;
+}
+
+/* Input styling */
+input[type="text"],
+input[type="email"],
+input[type="password"] {
+  background-color: transparent;
+  border: 1px solid #ccc;
+  color: black;
+}
+
+input[type="checkbox"] {
+  margin-right: 10px;
+}
+
+.terms {
+  align-items: center;
+  margin-bottom: 15px;
+}
+
+.terms label {
+  color: black;
+}
+
+/* Back button styling */
+.back-button {
+  display: flex;
+  align-items: center;
+  margin-bottom: 15px;
+  cursor: pointer;
+  background: none;
+  border: 1px solid black;
+  color: black;
+  margin-left: -238px;
+  padding: 5px 10px;
+  border-radius: 5px;
+}
+
+.back-button:hover {
+  border-color: black;
+}
+
+.arrow {
+  color: black;
+  font-size: 20px;
+  margin-right: 8px;
+}
+
+/* Button styles */
+.btn-submit {
+  background-color: black;
+  color: white;
+  border: none;
+  cursor: pointer;
+  border-radius: 25px;
+  padding: 15px;
+}
+
+.btn-google {
+  background-color: black;
+  color: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 25px;
+  padding: 15px;
+}
+
+.btn-google:hover {
+  border-color: #000;
+}
+
+.btn-email {
+  background-color: transparent;
+  color: black;
+  cursor: pointer;
+  border: 1px solid black;
+  border-radius: 25px;
+  padding: 15px;
+}
+
+.btn-email:hover {
+  border-color: #000;
+}
+
+/* Responsive adjustments for small screens */
+@media (max-width: 768px) {
+  .container {
+    flex-direction: column;
+  }
+
+  .image-container,
+  .form-container {
+    width: 100%;
+    padding: 10px;
+  }
+
+  .image {
+    width: 60%;
+    max-width: 300px;
+  }
+}

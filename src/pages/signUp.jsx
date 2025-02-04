@@ -1,0 +1,59 @@
+import { useState } from "react";
+
+export default function SignUp() {
+  const [isEmailSignup, setIsEmailSignup] = useState(false);
+
+  return (
+    <div className="container">
+      {/* Left Side Image */}
+      <div className="image-container">
+        <img
+          src="https://thumbs.dreamstime.com/b/sign-up-icon-flat-style-finger-cursor-vector-illustration-white-isolated-background-click-button-business-concept-143479797.jpg?w=360"
+          alt="Sign Up"
+          className="image"
+        />
+      </div>
+
+      {/* Right Side Form */}
+      <div className="form-container">
+        {isEmailSignup ? (
+          <div className="form">
+            <button
+              className="back-button"
+              onClick={() => setIsEmailSignup(false)}
+            >
+              <span className="arrow">←</span> Back
+            </button>
+            <h2>Sign Up</h2>
+            <input type="text" placeholder="Name" className="input-field" />
+            <input type="text" placeholder="Username" className="input-field" />
+            <input type="email" placeholder="Email" className="input-field" />
+            <input
+              type="password"
+              placeholder="Password"
+              className="input-field"
+            />
+            <div className="terms">
+              <input type="checkbox" id="terms" className="checkbox" />
+              <label htmlFor="terms">
+                I agree to the terms and conditions.
+              </label>
+            </div>
+            <button className="btn-submit">Create Account</button>
+          </div>
+        ) : (
+          <div className="alternative">
+            <h2>Sign Up for Whatever</h2>
+            <button className="btn-google">Sign Up with Google</button>
+            <button
+              className="btn-email border-none"
+              onClick={() => setIsEmailSignup(true)}
+            >
+              Continue with Email
+            </button>
+          </div>
+        )}
+      </div>
+    </div>
+  );
+}
