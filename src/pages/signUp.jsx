@@ -51,6 +51,14 @@ export default function SignUp() {
             >
               Continue with Email
             </button>
+            <div className="sign-in-link mt-4">
+              <p className="text-sm">
+                Already have an account?{" "}
+                <a href="/login" className="link-signin">
+                  Sign In
+                </a>
+              </p>
+            </div>
           </div>
         )}
       </div>
