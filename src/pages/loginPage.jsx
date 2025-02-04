@@ -30,11 +30,7 @@ export default function SignIn() {
 
         <div className="sign-up-link">
           Don&apos;t have an account?{" "}
-          <a
-            href="#"
-            className="link-signup"
-            onClick={() => alert("Redirect to signup page")}
-          >
+          <a href="/signup" className="link-signup">
             Sign up
           </a>
         </div>
