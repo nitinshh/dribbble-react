@@ -577,3 +577,106 @@ input[type="checkbox"] {
 .login-input-field {
   margin-top: 20px;
 }
+
+
+/*-------cards--------*/
+
+.card-container {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px;
+  padding: 50px;
+  justify-content: center;
+  align-items: start;
+  place-items: center;
+  height: 90vh;
+}
+
+.card {
+  width: 100%;
+  max-width: 330px;
+  background: #f7fafc;
+  color: black;
+  border-radius: 10px;
+  overflow: hidden;
+  box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+  transition: all 0.3s ease-in-out;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+}
+
+.card:hover {
+  filter: brightness(90%);
+}
+
+.card img {
+  aspect-ratio: 16 / 9;
+  object-fit: cover;
+}
+
+.hover-icons {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  display: flex;
+  gap: 15px;
+  opacity: 0;
+  transition: opacity 0.3s ease-in-out;
+}
+
+.card:hover .hover-icons {
+  opacity: 1;
+}
+
+
+.icon-btn {
+  background: rgba(0, 0, 0, 0.5);
+  color: white;
+  padding: 10px;
+  border-radius: 50%;
+  transition: 0.3s;
+  border: none;
+}
+
+.icon-btn {
+  border: none;
+}
+
+
+.card-footer {
+  padding: 20px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.user-info {
+  display: flex;
+  align-items: center;
+}
+
+.user-img {
+  width: 25px;
+  height: 25px;
+  border-radius: 50%;
+  object-fit: cover;
+  margin-right: 5px;
+}
+
+
+.creator-name {
+  font-weight: bold;
+  font-size: 14px;
+  color: #333;
+}
+
+.likes-info {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-weight: bold;
+  color: #ff6b4d;
+}

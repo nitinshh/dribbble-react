@@ -1,0 +1,147 @@
+import { useState } from "react";
+import { FaHeart, FaRegHeart, FaBookmark, FaRegBookmark } from "react-icons/fa";
+
+const cardsData = [
+  {
+    id: 1,
+    image:
+      "https://th.bing.com/th/id/OIP.xn_2NVOd9gK4c-5bwyiSrgHaHa?rs=1&pid=ImgDetMain",
+    creator: "Nitin",
+    likes: 20,
+    bookmarks: 5,
+    userImage:
+      "https://th.bing.com/th/id/OIP.gUbYpAArMqKXmoJgnWyYHgHaHa?w=199&h=199&c=7&r=0&o=5&dpr=1.5&pid=1.7",
+  },
+  {
+    id: 2,
+    image:
+      "https://i.pinimg.com/originals/10/96/48/109648acbb12c489c65472475c679aa5.jpg",
+    creator: "Hritik",
+    likes: 35,
+    bookmarks: 8,
+    userImage:
+      "https://th.bing.com/th/id/OIP.b86ArliHa9t3ezglwBtKxAHaHO?rs=1&pid=ImgDetMain",
+  },
+  {
+    id: 3,
+    image:
+      "https://i.pinimg.com/736x/ae/6c/b4/ae6cb422b687319bbdbbfec1f6ca8df2.jpg",
+    creator: "Vaneet",
+    likes: 15,
+    bookmarks: 3,
+    userImage:
+      "https://i.pinimg.com/originals/3c/7e/3f/3c7e3f7d710f1ff9871e2579e11f8ffa.jpg",
+  },
+  {
+    id: 4,
+    image:
+      "https://i.pinimg.com/originals/be/14/88/be148863c1b38268192e240be7dd3428.jpg",
+    creator: "Luka",
+    likes: 25,
+    bookmarks: 6,
+    userImage:
+      "https://th.bing.com/th/id/OIP.xJrCryY5WIzlb09HDiQFlAAAAA?rs=1&pid=ImgDetMain",
+  },
+  {
+    id: 5,
+    image:
+      "https://wallpapers.com/images/hd/red-cute-aesthetic-pmth61t7vctcownl.jpg",
+    creator: "Eminem",
+    likes: 40,
+    bookmarks: 10,
+    userImage:
+      "https://i.pinimg.com/originals/71/c4/12/71c412aee07cb75c675b71419ecf82d2.jpg",
+  },
+  {
+    id: 6,
+    image:
+      "https://th.bing.com/th/id/OIP.ly7zmHQSdrnEE0ygSqHumAHaHa?rs=1&pid=ImgDetMain",
+    creator: "wrld",
+    likes: 30,
+    bookmarks: 7,
+    userImage:
+      "https://i.pinimg.com/originals/89/30/c6/8930c609a3b779111c19d54364d8d626.jpg",
+  },
+];
+
+function Home() {
+  const [cards, setCards] = useState(cardsData);
+
+  const toggleLike = (id) => {
+    setCards((prev) =>
+      prev.map((card) =>
+        card.id === id
+          ? {
+              ...card,
+              isLiked: !card.isLiked,
+              likes: card.isLiked ? card.likes - 1 : card.likes + 1,
+            }
+          : card
+      )
+    );
+  };
+
+  const toggleBookmark = (id) => {
+    setCards((prev) =>
+      prev.map((card) =>
+        card.id === id
+          ? {
+              ...card,
+              isBookmarked: !card.isBookmarked,
+              bookmarks: card.isBookmarked
+                ? card.bookmarks - 1
+                : card.bookmarks + 1,
+            }
+          : card
+      )
+    );
+  };
+
+  return (
+    <div className="card-container">
+      {cards.map((card) => (
+        <div key={card.id} className="card relative group">
+          {/* Card Image */}
+          <img src={card.image} alt="card" />
+
+          {/* Hover Icons in the Center */}
+          <div className="hover-icons absolute inset-0 flex justify-center items-center opacity-0 group-hover:opacity-100 transition duration-300">
+            <button onClick={() => toggleLike(card.id)} className="icon-btn">
+              {card.isLiked ? (
+                <FaHeart className="text-red-500" />
+              ) : (
+                <FaRegHeart />
+              )}
+            </button>
+            <button
+              onClick={() => toggleBookmark(card.id)}
+              className="icon-btn"
+            >
+              {card.isBookmarked ? (
+                <FaBookmark className="text-yellow-400" />
+              ) : (
+                <FaRegBookmark />
+              )}
+            </button>
+          </div>
+
+          {/* Footer Section */}
+          <div className="card-footer">
+            <div className="user-info">
+              <img src={card.userImage} alt="User" className="user-img" />
+              <span className="creator-name">{card.creator}</span>
+            </div>
+            <div className="likes-info">
+              <FaHeart className="text-red-500" />
+              <span>{card.likes}</span>
+              <FaBookmark className="text-yellow-400" />
+              <span>{card.bookmarks}</span>
+            </div>
+          </div>
+        </div>
+      ))}
+    </div>
+  );
+}
+
+export default Home;
