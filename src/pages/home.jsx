@@ -11,6 +11,7 @@ const cardsData = [
     bookmarks: 5,
     userImage:
       "https://th.bing.com/th/id/OIP.gUbYpAArMqKXmoJgnWyYHgHaHa?w=199&h=199&c=7&r=0&o=5&dpr=1.5&pid=1.7",
+    title: "Collage",
   },
   {
     id: 2,
@@ -21,6 +22,7 @@ const cardsData = [
     bookmarks: 8,
     userImage:
       "https://th.bing.com/th/id/OIP.b86ArliHa9t3ezglwBtKxAHaHO?rs=1&pid=ImgDetMain",
+    title: "Sky",
   },
   {
     id: 3,
@@ -31,6 +33,7 @@ const cardsData = [
     bookmarks: 3,
     userImage:
       "https://i.pinimg.com/originals/3c/7e/3f/3c7e3f7d710f1ff9871e2579e11f8ffa.jpg",
+    title: "Ice Cream",
   },
   {
     id: 4,
@@ -41,6 +44,7 @@ const cardsData = [
     bookmarks: 6,
     userImage:
       "https://th.bing.com/th/id/OIP.xJrCryY5WIzlb09HDiQFlAAAAA?rs=1&pid=ImgDetMain",
+    title: "Party",
   },
   {
     id: 5,
@@ -51,6 +55,7 @@ const cardsData = [
     bookmarks: 10,
     userImage:
       "https://i.pinimg.com/originals/71/c4/12/71c412aee07cb75c675b71419ecf82d2.jpg",
+    title: "Red",
   },
   {
     id: 6,
@@ -61,6 +66,7 @@ const cardsData = [
     bookmarks: 7,
     userImage:
       "https://i.pinimg.com/originals/89/30/c6/8930c609a3b779111c19d54364d8d626.jpg",
+    title: "Music",
   },
 ];
 
@@ -104,8 +110,13 @@ function Home() {
           {/* Card Image */}
           <img src={card.image} alt="card" />
 
-          {/* Hover Icons in the Center */}
-          <div className="hover-icons absolute inset-0 flex justify-center items-center opacity-0 group-hover:opacity-100 transition duration-300">
+          {/* Title on Hover (Left Side) */}
+          <div className="hover-title absolute left-2 top-2 opacity-0 group-hover:opacity-100 transition duration-300 bg-white p-2 rounded-lg shadow">
+            {card.title}
+          </div>
+
+          {/* Hover Icons (Right Side) */}
+          <div className="hover-icons absolute right-2 top-2 flex opacity-0 group-hover:opacity-100 transition duration-300 gap-2">
             <button onClick={() => toggleLike(card.id)} className="icon-btn">
               {card.isLiked ? (
                 <FaHeart className="text-red-500" />
@@ -118,7 +129,7 @@ function Home() {
               className="icon-btn"
             >
               {card.isBookmarked ? (
-                <FaBookmark className="text-yellow-400" />
+                <FaBookmark className="text-blue-500" />
               ) : (
                 <FaRegBookmark />
               )}
@@ -132,9 +143,9 @@ function Home() {
               <span className="creator-name">{card.creator}</span>
             </div>
             <div className="likes-info">
-              <FaHeart className="text-red-500" />
+              <FaHeart />
               <span>{card.likes}</span>
-              <FaBookmark className="text-yellow-400" />
+              <FaBookmark />
               <span>{card.bookmarks}</span>
             </div>
           </div>
