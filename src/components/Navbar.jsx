@@ -80,7 +80,7 @@ function Navbar() {
           <li className="ml-4">
             <div className="search-container">
               <input
-                type="text"
+                type="search"
                 className="search-input"
                 value={searchQuery}
                 onChange={handleSearchChange}

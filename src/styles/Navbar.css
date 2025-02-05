@@ -179,3 +179,9 @@
     margin-right: 5px;
     cursor: pointer;
 }
+
+input[type="search"] {
+    background-color: transparent;
+    margin-bottom: 0px;
+    color: black;
+}
