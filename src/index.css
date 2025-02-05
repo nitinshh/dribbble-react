@@ -676,6 +676,5 @@ input[type="checkbox"] {
   display: flex;
   align-items: center;
   gap: 10px;
-  font-weight: bold;
-  color: #ff6b4d;
+  color: rgb(243, 153, 169);
 }
