@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { Link } from "react-router-dom";
 import "../styles/Navbar.css";
 
 function Navbar() {
@@ -94,10 +95,14 @@ function Navbar() {
         {/* Buttons Section */}
         <div className="navbar_buttons flex space-x-4">
           <button className="signup_button px-4 py-2 rounded-lg">
-            Sign Up
+            <Link to="/signup" className="signup_button">
+              Sign Up
+            </Link>
           </button>
           <button className="signin_button px-4 py-2 rounded-lg">
-            Sign In
+            <Link to="/login" className="signin_button">
+              Sign In
+            </Link>
           </button>
         </div>
       </div>
