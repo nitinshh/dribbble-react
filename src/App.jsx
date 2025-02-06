@@ -1,7 +1,7 @@
 import { Routes, Route } from "react-router-dom";
 
 import Navbar from "./components/navbar";
-import Heading from "./components/Heading";
+import Banner from "./components/banner";
 import Footer from "./components/footer";
 import Filter from "./components/filter";
 import CarouselSlider from "./components/carouselSlider";
@@ -15,7 +15,7 @@ function Dashboard() {
   return (
     <>
       <Navbar />
-      <Heading />
+      <Banner />
       <Filter />
       <Home />
       <CarouselSlider />

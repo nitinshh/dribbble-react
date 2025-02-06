@@ -1,6 +1,6 @@
 // import React from "react";
 
-function Heading() {
+function Banner() {
   return (
     <div className="main_content flex h-screen w-full">
       <div className="main_heading">
@@ -26,4 +26,4 @@ function Heading() {
   );
 }
 
-export default Heading;
+export default Banner;
