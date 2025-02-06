@@ -520,6 +520,18 @@ input[type="checkbox"] {
   color: black;
 }
 
+
+.smaller-text {
+  font-size: 10px;
+  text-align: center;
+  color: #6b7280;
+}
+
+.smaller-text a {
+  color: black;
+  text-decoration: underline;
+}
+
 /* Responsive adjustments for small screens */
 @media (max-width: 768px) {
   .container {
@@ -546,6 +558,11 @@ input[type="checkbox"] {
   margin-top: 10px;
   font-size: 14px;
   color: black;
+}
+
+.button-text {
+  color: black;
+  font-size: 14px;
 }
 
 .link-signup {

@@ -24,6 +24,15 @@ export default function SignIn() {
           Sign Up with Google
         </button>
 
+        {/* OR Divider with Text */}
+        <div className="flex items-center my-4">
+          <hr className="flex-grow border-t border-gray-400" />
+          <span className="button-text mx-4 text-gray-500">
+            or sign in with email
+          </span>
+          <hr className="flex-grow border-t border-gray-400" />
+        </div>
+
         {/* Inputs and Sign In Button */}
         <input
           type="text"

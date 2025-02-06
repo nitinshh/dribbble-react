@@ -53,12 +53,30 @@ export default function SignUp() {
               />
               Sign Up with Google
             </button>
+
+            {/* OR Divider with Lines on Left and Right of the Text */}
+            <div className="flex items-center my-4">
+              <hr className="flex-grow border-t border-gray-400" />
+              <span className="mx-4 text-gray-500">or</span>
+              <hr className="flex-grow border-t border-gray-400" />
+            </div>
+
             <button
               className="btn-email border-none"
               onClick={() => setIsEmailSignup(true)}
             >
               Continue with Email
             </button>
+
+            {/* Add Terms and Conditions Text */}
+            <p className="smaller-text mt-4">
+              By creating an account you agree with our{" "}
+              <Link to="/terms">Terms of Service</Link>,{" "}
+              <Link to="/privacy-policy">Privacy Policy</Link>, and{" "}
+              <Link to="/notifications">our default Notification Settings</Link>
+              .
+            </p>
+
             <div className="sign-in-link mt-4">
               <p className="text-sm">
                 Already have an account?{" "}
