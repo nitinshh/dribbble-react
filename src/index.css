@@ -459,6 +459,13 @@ input[type="checkbox"] {
   border-color: black;
 }
 
+.google-logo {
+  width: 20px;
+  height: 20px;
+  margin-right: 8px;
+}
+
+
 .arrow {
   color: black;
   font-size: 20px;

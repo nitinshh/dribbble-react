@@ -45,7 +45,14 @@ export default function SignUp() {
         ) : (
           <div className="alternative">
             <h2>Sign Up for Whatever</h2>
-            <button className="btn-google">Sign Up with Google</button>
+            <button className="btn-google">
+              <img
+                src="https://th.bing.com/th/id/OIP.ShioSYl43aFlecWVHOks-wHaHa?rs=1&pid=ImgDetMain"
+                alt="Google Logo"
+                className="google-logo"
+              />
+              Sign Up with Google
+            </button>
             <button
               className="btn-email border-none"
               onClick={() => setIsEmailSignup(true)}

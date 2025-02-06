@@ -15,7 +15,14 @@ export default function SignIn() {
       {/* Right Side Form */}
       <div className="login-form-container">
         <h2 className="login-text">Sign in to Whatever</h2>
-        <button className="btn-google">Sign in with Google</button>
+        <button className="btn-google">
+          <img
+            src="https://th.bing.com/th/id/OIP.ShioSYl43aFlecWVHOks-wHaHa?rs=1&pid=ImgDetMain"
+            alt="Google Logo"
+            className="google-logo"
+          />
+          Sign Up with Google
+        </button>
 
         {/* Inputs and Sign In Button */}
         <input
