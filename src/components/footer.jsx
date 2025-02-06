@@ -1,4 +1,6 @@
-// import React from "react";
+import { useEffect } from "react";
+import { Link, useLocation } from "react-router-dom";
+
 import {
   FaTwitter,
   FaPinterest,
@@ -7,6 +9,12 @@ import {
 } from "react-icons/fa";
 
 function Footer() {
+  const location = useLocation();
+
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, [location]);
+
   return (
     <footer className="footer_container">
       <div className="footer_wrapper">
@@ -51,7 +59,7 @@ function Footer() {
       <div className="footer_bottom">
         <div className="footer_left">
           <span>© 2025 Dribbble</span>
-          <a href="#">Terms</a>
+          <Link to="/terms">Terms</Link>
           <a href="#">Privacy</a>
           <a href="#">Cookies</a>
         </div>

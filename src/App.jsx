@@ -8,6 +8,7 @@ import CarouselSlider from "./components/carouselSlider";
 import Home from "./pages/home";
 import SignUp from "./pages/signUp";
 import Login from "./pages/loginPage";
+import Terms from "./pages/terms";
 
 // const temptoken = false;
 
@@ -24,6 +25,17 @@ function Dashboard() {
   );
 }
 
+function TermsPage() {
+  return (
+    <>
+      <Navbar />
+      <Terms />
+      <CarouselSlider />
+      <Footer />
+    </>
+  );
+}
+
 export default function App() {
   return (
     <>
@@ -31,6 +43,7 @@ export default function App() {
         <Route path="/" element={<Dashboard />} />
         <Route path="/signup" element={<SignUp />} />
         <Route path="/login" element={<Login />} />
+        <Route path="/terms" element={<TermsPage />} />
       </Routes>
     </>
   );
