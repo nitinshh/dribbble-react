@@ -770,14 +770,13 @@ input[type="checkbox"] {
 
 
 .main-content {
-  max-width: 800px;
   padding: 20px;
 }
 
 .terms-title {
   background-color: pink;
   font-size: 25px;
-  margin: 0px 270px;
+  margin: 0px 450px;
   border-radius: 25px;
   padding: 5px;
   font-weight: bold;
