@@ -40,16 +40,28 @@ function Footer() {
 
         {/* Social Media Icons */}
         <div className="footer_socials">
-          <a href="#">
-            <FaTwitter />
+          <a href="https://x.com" target="_blank" rel="noopener noreferrer">
+            <FaTwitter />{" "}
           </a>
-          <a href="#">
+          <a
+            href="https://pinterest.com"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
             <FaPinterest />
           </a>
-          <a href="#">
+          <a
+            href="https://facebook.com"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
             <FaFacebook />
           </a>
-          <a href="#">
+          <a
+            href="https://instagram.com"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
             <FaInstagram />
           </a>
         </div>
