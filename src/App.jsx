@@ -12,6 +12,8 @@ import Terms from "./pages/terms";
 import PrivacyPolicy from "./pages/privacyPolicy";
 import CookiePolicy from "./pages/cookiePolicy";
 import CodeOfConduct from "./pages/codeOfConduct";
+import About from "./pages/about";
+import Careers from "./pages/careers";
 
 // const temptoken = false;
 
@@ -72,6 +74,28 @@ function CodeOfConductPage() {
   );
 }
 
+function AboutPage() {
+  return (
+    <>
+      <Navbar />
+      <About />
+      <CarouselSlider />
+      <Footer />
+    </>
+  );
+}
+
+function CareersPage() {
+  return (
+    <>
+      <Navbar />
+      <Careers />
+      <CarouselSlider />
+      <Footer />
+    </>
+  );
+}
+
 export default function App() {
   return (
     <>
@@ -83,6 +107,9 @@ export default function App() {
         <Route path="/privacypolicy" element={<PrivacyPolicyPage />} />
         <Route path="/cookiespolicy" element={<CookiePolicyPage />} />
         <Route path="/CodeOfConduct" element={<CodeOfConductPage />} />
+        <Route path="/about" element={<AboutPage />} />
+        <Route path="/careers" element={<CareersPage />} />
+
       </Routes>
     </>
   );

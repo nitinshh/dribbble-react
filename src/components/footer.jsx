@@ -20,10 +20,13 @@ function Footer() {
       <div className="footer_wrapper">
         {/* Logo Section */}
         <div className="footer_logo">
-          <img
-            src="https://media.istockphoto.com/id/1483051074/vector/whatever-vector-lettering.jpg?s=612x612&w=0&k=20&c=jUsXsXLj-bYMSdPvzCkFKZM1lprQC6PKqjNl_6doV8k="
-            alt="Logo"
-          />
+          <Link to="/">
+            <img
+              src="https://media.istockphoto.com/id/1483051074/vector/whatever-vector-lettering.jpg?s=612x612&w=0&k=20&c=jUsXsXLj-bYMSdPvzCkFKZM1lprQC6PKqjNl_6doV8k="
+              alt="Logo"
+              className="w-16 h-16"
+            />
+          </Link>
         </div>
 
         {/* Navigation Menu */}
@@ -33,8 +36,8 @@ function Footer() {
           <a href="#">Inspiration</a>
           <a href="#">Advertising</a>
           <a href="#">Blog</a>
-          <a href="#">About</a>
-          <a href="#">Careers</a>
+          <Link to="/about">About</Link>
+          <Link to="/careers">Careers</Link>
           <a href="#">Support</a>
         </div>
 
@@ -42,13 +45,6 @@ function Footer() {
         <div className="footer_socials">
           <a href="https://x.com" target="_blank" rel="noopener noreferrer">
             <FaTwitter />{" "}
-          </a>
-          <a
-            href="https://pinterest.com"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <FaPinterest />
           </a>
           <a
             href="https://facebook.com"
@@ -64,13 +60,20 @@ function Footer() {
           >
             <FaInstagram />
           </a>
+          <a
+            href="https://pinterest.com"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            <FaPinterest />
+          </a>
         </div>
       </div>
 
       {/* Second Line */}
       <div className="footer_bottom">
         <div className="footer_left">
-          <span>© 2025 Dribbble</span>
+          <span>© 2025 Whatever</span>
           <Link to="/terms">Terms</Link>
           <Link to="/privacypolicy">Privacy</Link>
           <Link to="/cookiespolicy">Cookies</Link>
