@@ -39,13 +39,13 @@ function mediaKit() {
             src="https://framerusercontent.com/images/r2TPSB68WTs74BhWeakoX09TEc.jpg"
             alt="group image"
           />
-          <h2>Our name</h2>
+          <h2 className="mediakit-h">Our name</h2>
           <p className="terms-paragraph">
             The name Whatever came about from the dual metaphors of bouncing
             ideas and leaking your work. Within content, Whatever is spelled
             with a capital D.
           </p>
-          <h2>Our logos</h2>
+          <h2 className="mediakit-h">Our logos</h2>
           <p className="terms-paragraph">
             We’ve provided vector versions of our logo and mark for certain uses
             listed below.
@@ -63,7 +63,7 @@ function mediaKit() {
               />
             </div>
           </div>
-          <h2>Do’s and Don’ts</h2>
+          <h1 className="mediakit-h">Do’s and Don’ts</h1>
           <p className="terms-paragraph">
             Please don’t do this:
             <p>
