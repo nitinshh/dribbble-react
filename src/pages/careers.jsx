@@ -10,10 +10,10 @@ function careers() {
             <Link to="/about">About Us</Link>
           </span>
           <span className="terms-option">
-            <Link to="/careers">Careers at Dribbble</Link>
+            <Link to="/careers">Careers at Whatever</Link>
           </span>
           <span className="terms-option">
-            <Link to="/#">Media kit</Link>
+            <Link to="/media-kit">Media kit</Link>
           </span>
           <span className="terms-option">
             <Link to="/#">Customer stories</Link>
@@ -26,7 +26,7 @@ function careers() {
 
       {/* Main Content */}
       <div className="main-content">
-        <h1 className="terms-title">Careers at Dribbble</h1>
+        <h1 className="terms-title">Careers at Whatever</h1>
         <h2 className="terms-subtitle">
           Join us in helping bring the world’s creative ideas to life
         </h2>

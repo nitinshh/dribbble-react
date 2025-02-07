@@ -13,7 +13,7 @@ function about() {
             <Link to="/careers">Careers at Whatever</Link>
           </span>
           <span className="terms-option">
-            <Link to="/#">Media kit</Link>
+            <Link to="/media-kit">Media kit</Link>
           </span>
           <span className="terms-option">
             <Link to="/#">Customer stories</Link>

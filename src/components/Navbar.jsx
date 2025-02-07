@@ -71,7 +71,7 @@ function Navbar() {
                 <li className="dropdown_item">Browse Designers</li>
                 <li className="dropdown_item">Submit a Project Brief</li>
                 <li className="dropdown_item">Post a Job</li>
-                <li className="dropdown_item">Hiring on Dribbble</li>
+                <li className="dropdown_item">Hiring on Whatever</li>
               </ul>
             )}
           </li>
