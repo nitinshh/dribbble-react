@@ -9,6 +9,9 @@ import Home from "./pages/home";
 import SignUp from "./pages/signUp";
 import Login from "./pages/loginPage";
 import Terms from "./pages/terms";
+import PrivacyPolicy from "./pages/privacyPolicy";
+import CookiePolicy from "./pages/cookiePolicy";
+import CodeOfConduct from "./pages/codeOfConduct";
 
 // const temptoken = false;
 
@@ -36,6 +39,39 @@ function TermsPage() {
   );
 }
 
+function PrivacyPolicyPage() {
+  return (
+    <>
+      <Navbar />
+      <PrivacyPolicy />
+      <CarouselSlider />
+      <Footer />
+    </>
+  );
+}
+
+function CookiePolicyPage() {
+  return (
+    <>
+      <Navbar />
+      <CookiePolicy />
+      <CarouselSlider />
+      <Footer />
+    </>
+  );
+}
+
+function CodeOfConductPage() {
+  return (
+    <>
+      <Navbar />
+      <CodeOfConduct />
+      <CarouselSlider />
+      <Footer />
+    </>
+  );
+}
+
 export default function App() {
   return (
     <>
@@ -44,6 +80,9 @@ export default function App() {
         <Route path="/signup" element={<SignUp />} />
         <Route path="/login" element={<Login />} />
         <Route path="/terms" element={<TermsPage />} />
+        <Route path="/privacypolicy" element={<PrivacyPolicyPage />} />
+        <Route path="/cookiespolicy" element={<CookiePolicyPage />} />
+        <Route path="/CodeOfConduct" element={<CodeOfConductPage />} />
       </Routes>
     </>
   );

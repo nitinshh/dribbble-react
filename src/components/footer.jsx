@@ -60,8 +60,8 @@ function Footer() {
         <div className="footer_left">
           <span>© 2025 Dribbble</span>
           <Link to="/terms">Terms</Link>
-          <a href="#">Privacy</a>
-          <a href="#">Cookies</a>
+          <Link to="/privacypolicy">Privacy</Link>
+          <Link to="/cookiespolicy">Cookies</Link>
         </div>
 
         <div className="footer_right">

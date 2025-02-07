@@ -9,9 +9,15 @@ function Terms() {
           <span className="terms-option">
             <Link to="/terms">Terms of Service</Link>
           </span>
-          <span className="terms-option">Privacy Policy</span>
-          <span className="terms-option">Cookie Policy</span>
-          <span className="terms-option">Code of Conduct</span>
+          <span className="terms-option">
+            <Link to="/privacypolicy">Privacy Policy</Link>
+          </span>
+          <span className="terms-option">
+            <Link to="/cookiespolicy">Cookie Policy</Link>
+          </span>
+          <span className="terms-option">
+            <Link to="/codeofconduct">Code of Conduct</Link>
+          </span>
         </div>
       </div>
 
@@ -21,16 +27,16 @@ function Terms() {
         <h2 className="terms-subtitle">Our terms of service</h2>
         <p className="terms-description">
           Read our terms below to learn more about your rights and
-          responsibilities as a Dribbble user.
+          responsibilities as a Whatever user.
         </p>
 
         <div className="terms-body">
           <p className="terms-paragraph">
-            Dribbble Holdings Limited (the “Dribbble Group”) is comprised of
+            Whatever Holdings Limited (the “Whatever Group”) is comprised of
             several companies, which together provide tools to help the world’s
             designers to create, develop and promote their talents (each a
             “Service” and collectively, the “Services”). The companies within
-            the Dribbble Group each act as the data controller for personal data
+            the Whatever Group each act as the data controller for personal data
             processed in respect of their Services (each a “Group Company” and
             together the “Group Companies”) and referred to as “our,” “we,” or
             “us” below. Our Group Companies operate the Services, which include
@@ -40,7 +46,7 @@ function Terms() {
             This page explains the terms by which you may use our online and/or
             mobile services, website, and software provided on or in connection
             with the Services. These terms apply to all sites to which link to
-            these terms, including, but not limited to, dribbble.com,
+            these terms, including, but not limited to, Whatever.com,
             creativemarket.com, fontspring.com, fontsquirrel.com, and any
             subdomains thereof. By using the Services, creating an account and
             checking the (or similar) box, or otherwise accessing or using the
@@ -62,7 +68,7 @@ function Terms() {
             Fontspring), your use of the Services in such a capacity may be
             subject to additional terms. If you engage in sharing content and
             interact with other users in our community (e.g., posting or
-            commenting on content at Dribbble), your conduct may be subject to
+            commenting on content at Whatever), your conduct may be subject to
             Community Guidelines. We may offer promotions or contests through
             the Services from time to time, and your participation in these may
             also be subject to additional terms. To the extent additional terms
