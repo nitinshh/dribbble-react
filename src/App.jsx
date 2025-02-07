@@ -15,6 +15,8 @@ import CodeOfConduct from "./pages/codeOfConduct";
 import About from "./pages/about";
 import Careers from "./pages/careers";
 import MediaKit from "./pages/mediaKit";
+import Testimonials from "./pages/testimonials";
+import Advertise from "./pages/advertise";
 
 // const temptoken = false;
 
@@ -108,6 +110,28 @@ function MediaKitPage() {
   );
 }
 
+function TestimonialsPage() {
+  return (
+    <>
+      <Navbar />
+      <Testimonials />
+      <CarouselSlider />
+      <Footer />
+    </>
+  );
+}
+
+function AdvertisePage() {
+  return (
+    <>
+      <Navbar />
+      <Advertise />
+      <CarouselSlider />
+      <Footer />
+    </>
+  );
+}
+
 export default function App() {
   return (
     <>
@@ -122,6 +146,8 @@ export default function App() {
         <Route path="/about" element={<AboutPage />} />
         <Route path="/careers" element={<CareersPage />} />
         <Route path="/media-kit" element={<MediaKitPage />} />
+        <Route path="/testimonials" element={<TestimonialsPage />} />
+        <Route path="/advertise" element={<AdvertisePage />} />
       </Routes>
     </>
   );

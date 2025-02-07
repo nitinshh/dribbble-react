@@ -16,10 +16,10 @@ function mediaKit() {
             <Link to="/media-kit">Media kit</Link>
           </span>
           <span className="terms-option">
-            <Link to="/#">Customer stories</Link>
+            <Link to="/testimonials">Customer stories</Link>
           </span>
           <span className="terms-option">
-            <Link to="/#">Advertise</Link>
+            <Link to="/advertise">Advertise</Link>
           </span>
         </div>
       </div>
