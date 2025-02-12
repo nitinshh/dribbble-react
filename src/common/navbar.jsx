@@ -1,24 +1,26 @@
-import { useState } from "react";
-import { Link } from "react-router-dom";
+import { useState, useEffect } from "react";
+import { Link, useNavigate } from "react-router-dom";
 import "../styles/Navbar.css";
 
 function Navbar() {
-  const [showDropdown, setShowDropdown] = useState(false);
+  // const [showDropdown, setShowDropdown] = useState(false);
   const [activeDropdown, setActiveDropdown] = useState(null);
   const [searchQuery, setSearchQuery] = useState("");
+  const [user, setUser] = useState(null);
+  const navigate = useNavigate();
 
-  const handleMouseEnter = (dropdown) => {
-    setActiveDropdown(dropdown);
-    setShowDropdown(true);
-  };
+  useEffect(() => {
+    // Retrieve user data from local storage
+    const storedUser = JSON.parse(localStorage.getItem("user"));
+    if (storedUser) {
+      setUser(storedUser);
+    }
+  }, []);
 
-  const handleMouseLeave = () => {
-    setShowDropdown(false);
-    setActiveDropdown(null);
-  };
-
-  const handleSearchChange = (e) => {
-    setSearchQuery(e.target.value);
+  const handleLogout = () => {
+    localStorage.removeItem("user");
+    setUser(null);
+    navigate("/");
   };
 
   return (
@@ -39,11 +41,11 @@ function Navbar() {
         <ul className="navbar_menu flex text-gray-700">
           <li
             className="relative cursor-pointer"
-            onMouseEnter={() => handleMouseEnter("explore")}
-            onMouseLeave={handleMouseLeave}
+            onMouseEnter={() => setActiveDropdown("explore")}
+            onMouseLeave={() => setActiveDropdown(null)}
           >
             Explore <span className="down-arrow"></span>
-            {showDropdown && activeDropdown === "explore" && (
+            {activeDropdown === "explore" && (
               <ul className="dropdown_menu">
                 <li className="dropdown_item_up">Popular</li>
                 <li className="dropdown_item_up">New and Noteworthy</li>
@@ -62,11 +64,11 @@ function Navbar() {
 
           <li
             className="relative cursor-pointer"
-            onMouseEnter={() => handleMouseEnter("hire")}
-            onMouseLeave={handleMouseLeave}
+            onMouseEnter={() => setActiveDropdown("hire")}
+            onMouseLeave={() => setActiveDropdown(null)}
           >
             Hire a Designer <span className="down-arrow"></span>
-            {showDropdown && activeDropdown === "hire" && (
+            {activeDropdown === "hire" && (
               <ul className="dropdown_menu">
                 <li className="dropdown_item">Browse Designers</li>
                 <li className="dropdown_item">Submit a Project Brief</li>
@@ -79,14 +81,14 @@ function Navbar() {
           <li className="cursor-pointer ml-4">Find Jobs</li>
           <li className="cursor-pointer ml-4">Blog</li>
 
-          {/* Search Bar Section */}
+          {/* Search Bar */}
           <li className="ml-4">
             <div className="search-container">
               <input
                 type="search"
                 className="search-input"
                 value={searchQuery}
-                onChange={handleSearchChange}
+                onChange={(e) => setSearchQuery(e.target.value)}
                 placeholder="What are you looking for?"
               />
               <i className="search-icon fas fa-search"></i>
@@ -94,18 +96,32 @@ function Navbar() {
           </li>
         </ul>
 
-        {/* Buttons Section */}
+        {/* Conditional Buttons Section */}
         <div className="navbar_buttons flex space-x-4">
-          <button className="signup_button px-4 py-2 rounded-lg">
-            <Link to="/signup" className="signup_button">
-              Sign Up
-            </Link>
-          </button>
-          <button className="signin_button px-4 py-2 rounded-lg">
-            <Link to="/login" className="signin_button">
-              Sign In
-            </Link>
-          </button>
+          {user ? (
+            <div className="user-menu relative">
+              <button className="user-button px-4 py-2 rounded-lg">
+                {user.name} ▼
+              </button>
+              <ul className="dropdown_menu absolute mt-2 bg-white shadow-lg">
+                <li className="dropdown_item">
+                  <Link to="/profile">Profile</Link>
+                </li>
+                <li className="dropdown_item">
+                  <button onClick={handleLogout}>Logout</button>
+                </li>
+              </ul>
+            </div>
+          ) : (
+            <>
+              <button className="signup_button px-4 py-2 rounded-lg">
+                <Link to="/signup">Sign Up</Link>
+              </button>
+              <button className="signin_button px-4 py-2 rounded-lg">
+                <Link to="/login">Sign In</Link>
+              </button>
+            </>
+          )}
         </div>
       </div>
     </nav>
