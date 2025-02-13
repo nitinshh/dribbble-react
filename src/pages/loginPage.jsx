@@ -1,6 +1,61 @@
-import { Link } from "react-router";
+import { useState } from "react";
+import { Link, useNavigate } from "react-router-dom";
+import axios from "axios";
+import Swal from "sweetalert2";
 
 export default function SignIn() {
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
+  const navigate = useNavigate();
+
+  const handleLogin = async (e) => {
+    e.preventDefault();
+
+    try {        
+        const response = await axios.post("http://localhost:3000/users/login", {
+            email,
+            password,
+            deviceToken: 'abc',
+        });
+
+        console.log("Login Response:", response.data);
+
+        if (!response.data.body) {
+            throw new Error("Invalid response from server.");
+        }
+
+        const { token, ...user } = response.data.body;
+
+        if (!token) {
+            throw new Error("Token not received from server.");
+        }
+
+        localStorage.setItem("token", token);
+        localStorage.setItem("user", JSON.stringify(user));
+
+        Swal.fire({
+            icon: "success",
+            title: "Login Successful",
+            text: "Welcome back!",
+            timer: 3000,
+            showConfirmButton: false,
+            toast: true,
+            position: "top-end",
+        });
+
+        navigate("/");
+    } catch (error) {
+        console.error("Login Error:", error.response?.data || error.message);
+
+        Swal.fire({
+            icon: "error",
+            title: "Login Failed",
+            text: error.response?.data?.message || "Invalid credentials!",
+        });
+    }
+};
+
+  
   return (
     <div className="signin_container">
       {/* Left Side Image */}
@@ -35,16 +90,24 @@ export default function SignIn() {
 
         {/* Inputs and Sign In Button */}
         <input
-          type="text"
-          placeholder="Username or Email"
-          className="login-input-field"
+          type="email"
+          placeholder="Email"
+          value={email}
+          onChange={(e) => setEmail(e.target.value)}
+          required
         />
+
         <input
           type="password"
           placeholder="Password"
-          className="login-input-field"
+          value={password}
+          onChange={(e) => setPassword(e.target.value)}
+          required
         />
-        <button className="btn-submit">Sign In</button>
+
+        <button className="btn-submit" onClick={handleLogin}>
+          Sign In
+        </button>
 
         <div className="sign-up-link">
           Don&apos;t have an account?{" "}

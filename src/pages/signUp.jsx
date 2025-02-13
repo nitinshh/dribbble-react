@@ -1,4 +1,5 @@
 import { useState } from "react";
+import axios from "axios";
 import { Link, useNavigate } from "react-router-dom";
 
 export default function SignUp() {
@@ -23,40 +24,29 @@ export default function SignUp() {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
+    
     if (!formData.agreeToTerms) {
       alert("You must agree to the terms and conditions.");
       return;
     }
+  
     setLoading(true);
-
+  
     try {
-      const response = await fetch("http://localhost:3000/users/signUp", {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify({
-          name: formData.name,
-          email: formData.email,
-          userName: formData.userName,
-          password: formData.password,
-        }),
+      const response = await axios.post("http://localhost:3000/users/signUp", {
+        name: formData.name,
+        email: formData.email,
+        userName: formData.userName,
+        password: formData.password,
       });
-
-      const data = await response.json();
-      console.log("Signup response:", data);
-
-      if (data.code == 200) {
-        if (data.body && data.body.name) {
-          localStorage.setItem(
-            "user",
-            JSON.stringify({ name: data.body.name })
-          );
-          navigate("/");
-        } else {
-          console.error("Signup successful but user data is missing:", data);
-          alert("Signup successful, but user data is missing!");
-        }
+  
+      console.log("Signup response:", response.data);
+  
+      if (response.data.code == 200) {
+        alert("Signup successful! Please login.");
+        navigate("/login"); // Redirect to login page after signup
       } else {
-        alert(data.message || "Signup failed!");
+        alert(response.data.message || "Signup failed!");
       }
     } catch (error) {
       console.error("Error during signup:", error);
@@ -65,6 +55,7 @@ export default function SignUp() {
       setLoading(false);
     }
   };
+  
 
   return (
     <div className="container">

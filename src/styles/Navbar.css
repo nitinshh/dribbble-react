@@ -63,6 +63,7 @@
 
 .signin_button {
     border: none;
+    background-color: black;
     color: white;
     border-radius: 50px;
     padding: 15px;
@@ -185,4 +186,25 @@ input[type="search"] {
     background-color: transparent;
     margin-bottom: 0px;
     color: black;
+}
+
+.user-container {
+    display: flex;
+    align-items: center;
+}
+
+.user-name {
+    font-weight: 500;
+    color: #333;
+    margin-right: 20px;
+}
+
+.logout_button {
+    padding: 10px 16px;
+    background-color: black;
+    color: white;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: background 0.3s;
 }

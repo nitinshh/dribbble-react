@@ -1,6 +1,8 @@
 import { useState, useEffect } from "react";
 import { Link, useNavigate } from "react-router-dom";
+import Swal from "sweetalert2";
 import "../styles/Navbar.css";
+import axios from "axios";
 
 function Navbar() {
   // const [showDropdown, setShowDropdown] = useState(false);
@@ -17,10 +19,56 @@ function Navbar() {
     }
   }, []);
 
-  const handleLogout = () => {
-    localStorage.removeItem("user");
-    setUser(null);
-    navigate("/");
+  const handleLogout = async () => {
+    try {
+      // Get token from localStorage
+      const token = localStorage.getItem("token");
+
+      if (!token) {
+        Swal.fire({
+          icon: "error",
+          title: "Logout Failed",
+          text: "No user logged in.",
+        });
+        return;
+      }
+
+      await axios.post(
+        "http://localhost:3000/users/logout",
+        { deviceToken: "abc" },
+        {
+          headers: {
+            Authorization: `Bearer ${token}`,
+          },
+        }
+      );
+
+      localStorage.removeItem("token");
+      localStorage.removeItem("user");
+
+      setUser(null);
+
+      Swal.fire({
+        icon: "success",
+        title: "Logged Out",
+        text: "You've logged out successfully!",
+        timer: 3000,
+        showConfirmButton: false,
+        toast: true,
+        position: "top-end",
+      });
+
+      setTimeout(() => {
+        navigate("/");
+      }, 3000);
+    } catch (error) {
+      console.error("Logout Error:", error);
+      Swal.fire({
+        icon: "error",
+        title: "Logout Failed",
+        text: error.response?.data?.message || "Something went wrong!",
+      });
+    }
   };
 
   return (
@@ -97,29 +145,22 @@ function Navbar() {
         </ul>
 
         {/* Conditional Buttons Section */}
-        <div className="navbar_buttons flex space-x-4">
+        <div className="navbar_buttons flex space-x-4 items-center">
           {user ? (
-            <div className="user-menu relative">
-              <button className="user-button px-4 py-2 rounded-lg">
-                {user.name} ▼
+            <div className="user-container">
+              <span className="user-name">{user.name}</span>
+              <button className="logout_button" onClick={handleLogout}>
+                Logout
               </button>
-              <ul className="dropdown_menu absolute mt-2 bg-white shadow-lg">
-                <li className="dropdown_item">
-                  <Link to="/profile">Profile</Link>
-                </li>
-                <li className="dropdown_item">
-                  <button onClick={handleLogout}>Logout</button>
-                </li>
-              </ul>
             </div>
           ) : (
             <>
-              <button className="signup_button px-4 py-2 rounded-lg">
-                <Link to="/signup">Sign Up</Link>
-              </button>
-              <button className="signin_button px-4 py-2 rounded-lg">
-                <Link to="/login">Sign In</Link>
-              </button>
+              <Link to="/signup" className="signup_button px-4 py-2 rounded-lg">
+                Sign Up
+              </Link>
+              <Link to="/login" className="signin_button px-4 py-2 rounded-lg">
+                Sign In
+              </Link>
             </>
           )}
         </div>
