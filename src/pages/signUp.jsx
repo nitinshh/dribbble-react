@@ -1,8 +1,11 @@
 import { useState } from "react";
 import axios from "axios";
 import { Link, useNavigate } from "react-router-dom";
+import { toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 export default function SignUp() {
+  const [errors, setErrors] = useState({});
   const [isEmailSignup, setIsEmailSignup] = useState(false);
   const [formData, setFormData] = useState({
     name: "",
@@ -24,14 +27,26 @@ export default function SignUp() {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-    
-    if (!formData.agreeToTerms) {
-      alert("You must agree to the terms and conditions.");
+
+    let newErrors = {};
+
+    if (!formData.name) newErrors.name = "Name is required";
+    if (!formData.userName) newErrors.userName = "Username is required";
+    if (!formData.email) newErrors.email = "Email is required";
+    if (!formData.password) newErrors.password = "Password is required";
+    else if (formData.password.length < 6)
+      newErrors.password = "Password must be at least 6 characters long";
+    if (!formData.agreeToTerms)
+      newErrors.agreeToTerms = "You must agree to the terms";
+
+    if (Object.keys(newErrors).length > 0) {
+      setErrors(newErrors);
       return;
     }
-  
+
     setLoading(true);
-  
+    setErrors({});
+
     try {
       const response = await axios.post("http://localhost:3000/users/signUp", {
         name: formData.name,
@@ -39,23 +54,32 @@ export default function SignUp() {
         userName: formData.userName,
         password: formData.password,
       });
-  
-      console.log("Signup response:", response.data);
-  
-      if (response.data.code == 200) {
-        alert("Signup successful! Please login.");
-        navigate("/login"); // Redirect to login page after signup
-      } else {
-        alert(response.data.message || "Signup failed!");
+
+      if (response.data.code === 200) {
+        toast.success("Signup successful! Redirecting to login...", {
+          position: "top-right",
+          autoClose: 3000,
+        });
+        setTimeout(() => navigate("/login"), 3000);
       }
     } catch (error) {
       console.error("Error during signup:", error);
-      alert("Something went wrong!");
+
+      if (
+        error.response &&
+        error.response.data &&
+        error.response.data.message
+      ) {
+        toast.error(error.response.data.message, { position: "top-right" });
+      } else {
+        toast.error("Something went wrong. Please try again.", {
+          position: "top-right",
+        });
+      }
     } finally {
       setLoading(false);
     }
   };
-  
 
   return (
     <div className="container">
@@ -87,6 +111,8 @@ export default function SignUp() {
               onChange={handleChange}
               required
             />
+            {errors.name && <p className="error-text">{errors.name}</p>}
+
             <input
               type="text"
               name="userName"
@@ -96,6 +122,8 @@ export default function SignUp() {
               onChange={handleChange}
               required
             />
+            {errors.userName && <p className="error-text">{errors.userName}</p>}
+
             <input
               type="email"
               name="email"
@@ -105,6 +133,8 @@ export default function SignUp() {
               onChange={handleChange}
               required
             />
+            {errors.email && <p className="error-text">{errors.email}</p>}
+
             <input
               type="password"
               name="password"
@@ -114,6 +144,8 @@ export default function SignUp() {
               onChange={handleChange}
               required
             />
+            {errors.password && <p className="error-text">{errors.password}</p>}
+
             <div className="terms">
               <input
                 type="checkbox"
@@ -127,6 +159,10 @@ export default function SignUp() {
                 I agree to the terms and conditions.
               </label>
             </div>
+            {errors.agreeToTerms && (
+              <p className="error-text">{errors.agreeToTerms}</p>
+            )}
+
             <button className="btn-submit" type="submit" disabled={loading}>
               {loading ? "Signing Up..." : "Create Account"}
             </button>

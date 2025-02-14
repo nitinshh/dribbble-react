@@ -6,56 +6,88 @@ import Swal from "sweetalert2";
 export default function SignIn() {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
+  const [errors, setErrors] = useState({ email: "", password: "" });
+
   const navigate = useNavigate();
 
   const handleLogin = async (e) => {
     e.preventDefault();
 
-    try {        
-        const response = await axios.post("http://localhost:3000/users/login", {
-            email,
-            password,
-            deviceToken: 'abc',
-        });
-
-        console.log("Login Response:", response.data);
-
-        if (!response.data.body) {
-            throw new Error("Invalid response from server.");
-        }
-
-        const { token, ...user } = response.data.body;
-
-        if (!token) {
-            throw new Error("Token not received from server.");
-        }
-
-        localStorage.setItem("token", token);
-        localStorage.setItem("user", JSON.stringify(user));
-
-        Swal.fire({
-            icon: "success",
-            title: "Login Successful",
-            text: "Welcome back!",
-            timer: 3000,
-            showConfirmButton: false,
-            toast: true,
-            position: "top-end",
-        });
-
-        navigate("/");
-    } catch (error) {
-        console.error("Login Error:", error.response?.data || error.message);
-
-        Swal.fire({
-            icon: "error",
-            title: "Login Failed",
-            text: error.response?.data?.message || "Invalid credentials!",
-        });
+    // Validation
+    let validationErrors = {};
+    if (!email.trim()) {
+      validationErrors.email = "Email is required.";
+    } else if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
+      validationErrors.email = "Enter a valid email address.";
     }
-};
 
-  
+    if (!password.trim()) {
+      validationErrors.password = "Password is required.";
+    }
+
+    if (Object.keys(validationErrors).length > 0) {
+      setErrors(validationErrors);
+
+      if (validationErrors.email) {
+        Swal.fire({
+          icon: "error",
+          title: "Invalid Email",
+          text: validationErrors.email,
+        });
+      }
+
+      return;
+    }
+
+    try {
+      const response = await axios.post("http://localhost:3000/users/login", {
+        email,
+        password,
+        deviceToken: "abc",
+      });
+
+      console.log("Login Response:", response.data);
+
+      if (!response.data.body) {
+        throw new Error("Invalid response from server.");
+      }
+
+      const { token, ...user } = response.data.body;
+
+      if (!token) {
+        throw new Error("Token not received from server.");
+      }
+
+      localStorage.setItem("token", token);
+      localStorage.setItem("user", JSON.stringify(user));
+
+      Swal.fire({
+        icon: "success",
+        title: "Login Successful",
+        text: "Welcome back!",
+        timer: 3000,
+        showConfirmButton: false,
+        toast: true,
+        position: "top-end",
+      });
+
+      navigate("/");
+    } catch (error) {
+      console.error("Login Error:", error.response?.data || error.message);
+
+      let errorMessage = "Invalid email or password!";
+      if (error.response?.data?.message) {
+        errorMessage = error.response.data.message;
+      }
+
+      Swal.fire({
+        icon: "error",
+        title: "Login Failed",
+        text: errorMessage,
+      });
+    }
+  };
+
   return (
     <div className="signin_container">
       {/* Left Side Image */}
@@ -94,16 +126,18 @@ export default function SignIn() {
           placeholder="Email"
           value={email}
           onChange={(e) => setEmail(e.target.value)}
-          required
         />
+        {errors.email && <span className="error-text">{errors.email}</span>}
 
         <input
           type="password"
           placeholder="Password"
           value={password}
           onChange={(e) => setPassword(e.target.value)}
-          required
         />
+        {errors.password && (
+          <span className="error-text">{errors.password}</span>
+        )}
 
         <button className="btn-submit" onClick={handleLogin}>
           Sign In

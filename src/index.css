@@ -971,3 +971,10 @@ input[type="checkbox"] {
   color: #555;
   text-align: left;
 }
+
+
+.error-text {
+  color: red;
+  font-size: 14px;
+  margin-top: 5px;
+}
