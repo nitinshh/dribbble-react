@@ -994,3 +994,13 @@ input[type="checkbox"] {
   font-size: 14px;
   margin-top: 5px;
 }
+
+.logout_button {
+  border: none;
+  background-color: black;
+  color: white;
+  border-radius: 50px;
+  padding: 15px;
+  outline: none;
+}
+

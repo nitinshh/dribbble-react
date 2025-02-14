@@ -149,7 +149,7 @@ function Navbar() {
           {user ? (
             <div className="user-container">
               <span className="user-name">{user.name}</span>
-              <button className="logout_button" onClick={handleLogout}>
+              <button className="logout_button px-4 py-2 rounded-lg" onClick={handleLogout}>
                 Logout
               </button>
             </div>
