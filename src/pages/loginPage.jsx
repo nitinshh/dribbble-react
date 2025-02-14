@@ -102,7 +102,7 @@ export default function SignIn() {
       {/* Right Side Form */}
       <div className="login-form-container">
         <h2 className="login-text">Sign in to Whatever</h2>
-        <button className="btn-google-login">
+        <button className="btn-google-login btn-email">
           <img
             src="https://static.vecteezy.com/system/resources/previews/013/948/549/original/google-logo-on-transparent-white-background-free-vector.jpg"
             alt="Google Logo"
