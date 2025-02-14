@@ -411,7 +411,7 @@ button:focus-visible {
 input,
 .btn-submit,
 .btn-google,
-.btn-email {
+.btn-email .btn-google-login {
   width: 100%;
   padding: 15px;
   margin-bottom: 15px;
@@ -493,6 +493,22 @@ input[type="checkbox"] {
 }
 
 .btn-google:hover {
+  border-color: #000;
+}
+
+.btn-google-login {
+  background-color: white;
+  color: black;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 25px;
+  padding: 15px;
+  border: 1px solid #000;
+  width: 100%;
+}
+
+.btn-google-login:hover {
   border-color: #000;
 }
 
